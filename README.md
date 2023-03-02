@@ -1,10 +1,9 @@
 # Description
 All of these algorithms are my solutions to [LeetCode Problems](https://leetcode.com/explore/) in Go
 
-Compile via root directory with: tsc
+Compile via root directory with: % go mod tidy
 
-/src has all of the TypeScript files.
-/dist has all of the executable JavaScript files. (This is created automatically)
+Run go with: % go run .
 
 # Need to do:
 General road map taken from LeetCode
