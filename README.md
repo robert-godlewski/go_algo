@@ -5,6 +5,11 @@ Compile via root directory with: % go mod tidy
 
 Run go with: % go run .
 
+# Go References:
+* https://go.dev/
+* https://go.dev/learn/
+* https://pkg.go.dev/
+
 # Need to do:
 General road map taken from LeetCode
 ![Road Map by Leetcode in the Beginner's Guide](/images/AlgorithmLeetCodeTopics.png)
