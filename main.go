@@ -48,4 +48,26 @@ func main() {
 	numSum[3] = 10
 	numSum[4] = 1
 	challenges.RunningSumPrint(numSum)
+	thinLine()
+
+	// Testing the maximumWealth
+	fmt.Println("Finding the Maximum Wealth")
+	accounts1 := [3][3]int{
+		{1, 2, 3},
+		{3, 2, 1},
+	}
+	challenges.MaxWealthPrint(accounts1)
+	accounts2 := [3][3]int{
+		{1, 5},
+		{7, 3},
+		{3, 5},
+	}
+	challenges.MaxWealthPrint(accounts2)
+	accounts3 := [3][3]int{
+		{2, 8, 7},
+		{7, 1, 3},
+		{1, 9, 5},
+	}
+	challenges.MaxWealthPrint(accounts3)
+	thinLine()
 }
