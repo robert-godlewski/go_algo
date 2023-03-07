@@ -1,10 +1,11 @@
 // This is a group of challenge problems for leetcode in March 2023
 package challenges
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // Running sum of a 1d Array
-// Printing it out
 func RunningSumPrint(nums [5]int) {
 	fmt.Printf("Initial values are %v\n", nums)
 	sumList := runningSum(nums)
@@ -21,7 +22,6 @@ func runningSum(nums [5]int) [5]int {
 }
 
 // Richest Customer Wealth
-// Printing it out
 func MaxWealthPrint(accounts [3][3]int) {
 	fmt.Printf("Account values = %v\n", accounts)
 	maxClient := maximumWealth(accounts)
@@ -44,4 +44,30 @@ func maximumWealth(accounts [3][3]int) int {
 		}
 	}
 	return maxSum
+}
+
+// Fizz Buzz
+func FizzBuzzPrint(n int) {
+	fmt.Printf("Fizz Buzz print for length of %v\n", n)
+	result := fizzBuzz(n)
+	fmt.Printf("Result = %v\n", result)
+}
+
+// Solved in 5 min
+func fizzBuzz(n int) []string {
+	var result []string
+	for i := 1; i <= n; i++ {
+		val := ""
+		if i%3 == 0 {
+			val += "Fizz"
+		}
+		if i%5 == 0 {
+			val += "Buzz"
+		}
+		if val == "" {
+			val = fmt.Sprintf("%d", i)
+		}
+		result = append(result, val)
+	}
+	return result
 }

@@ -50,7 +50,7 @@ func main() {
 	challenges.RunningSumPrint(numSum)
 	thinLine()
 
-	// Testing the maximumWealth
+	// Testing the MaximumWealth
 	fmt.Println("Finding the Maximum Wealth")
 	accounts1 := [3][3]int{
 		{1, 2, 3},
@@ -70,4 +70,10 @@ func main() {
 	}
 	challenges.MaxWealthPrint(accounts3)
 	thinLine()
+
+	// Testing FizzBuzz
+	fmt.Println("Fizz Buzz")
+	challenges.FizzBuzzPrint(3)
+	challenges.FizzBuzzPrint(5)
+	challenges.FizzBuzzPrint(15)
 }
