@@ -76,4 +76,11 @@ func main() {
 	challenges.FizzBuzzPrint(3)
 	challenges.FizzBuzzPrint(5)
 	challenges.FizzBuzzPrint(15)
+	thinLine()
+
+	// Testing Number of Steps
+	fmt.Println("Number of Steps")
+	challenges.NumberOfStepsPrint(14)
+	challenges.NumberOfStepsPrint(8)
+	challenges.NumberOfStepsPrint(123)
 }

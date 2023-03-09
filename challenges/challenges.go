@@ -14,6 +14,8 @@ func RunningSumPrint(nums [5]int) {
 
 // Actually runs the code
 // Solved in 5 min
+// O(n) time solution
+// O(1) space solution
 func runningSum(nums [5]int) [5]int {
 	for i := 1; i < len(nums); i++ {
 		nums[i] += nums[i-1]
@@ -28,8 +30,9 @@ func MaxWealthPrint(accounts [3][3]int) {
 	fmt.Printf("The richest client has %v\n", maxClient)
 }
 
-// Solved in 12pm
 // Solved in 10 min
+// O(n**2) time solution
+// O(1) space solution
 func maximumWealth(accounts [3][3]int) int {
 	m := len(accounts)
 	n := len(accounts[0])
@@ -54,6 +57,8 @@ func FizzBuzzPrint(n int) {
 }
 
 // Solved in 5 min
+// O(n) time solution
+// O(1) space solution
 func fizzBuzz(n int) []string {
 	var result []string
 	for i := 1; i <= n; i++ {
@@ -70,4 +75,26 @@ func fizzBuzz(n int) []string {
 		result = append(result, val)
 	}
 	return result
+}
+
+// Number of steps to reduce a number to 0
+func NumberOfStepsPrint(num int) {
+	result := numberOfSteps(num)
+	fmt.Printf("The number of steps to take %v to 0 = %v.\n", num, result)
+}
+
+// Solved in 5 min
+// O(n) time solution
+// O(1) space solution
+func numberOfSteps(num int) int {
+	steps := 0
+	for num > 0 {
+		if num%2 == 0 {
+			num /= 2
+		} else {
+			num -= 1
+		}
+		steps++
+	}
+	return steps
 }
