@@ -4,6 +4,7 @@ package main
 import (
 	"fmt"
 	"go_algo/challenges"
+	"go_algo/linkedlists"
 )
 
 // Use to make a thickLine in the terminal to split up the main categories
@@ -83,4 +84,27 @@ func main() {
 	challenges.NumberOfStepsPrint(14)
 	challenges.NumberOfStepsPrint(8)
 	challenges.NumberOfStepsPrint(123)
+
+	// Testing out ListNode class
+	// var n1 = new(linkedlists.ListNode)
+	// n1.Val = 1
+	// var n2 = new(linkedlists.ListNode)
+	// n2.Val = 2
+	// n2.Prev = n1
+	// n1.Next = n2
+	// fmt.Printf("n1 val = %v\nn1.next = %v\n", n1.Val, n1.Next.Val)
+	// fmt.Printf("n2 val = %v\nn2.prev = %v\n", n2.Val, n2.Prev.Val)
+
+	// Testing out LinkedList class
+	var testLL = new(linkedlists.LinkedList)
+	fmt.Println("Empty linked list:")
+	var testLLStr = testLL.PrintLL()
+	fmt.Printf("%v\n", testLLStr)
+	fmt.Println("Linked list after several add in operations:")
+	testLL.AddAtHead(1)
+	testLLStr = testLL.PrintLL()
+	fmt.Printf("%v\n", testLLStr)
+	testLL.AddAtTail(3)
+	testLLStr = testLL.PrintLL()
+	fmt.Printf("%v\n", testLLStr)
 }

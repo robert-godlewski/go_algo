@@ -3,6 +3,7 @@ package challenges
 
 import (
 	"fmt"
+	//"go_algo/LinkedLists"
 )
 
 // Running sum of a 1d Array
@@ -98,3 +99,11 @@ func numberOfSteps(num int) int {
 	}
 	return steps
 }
+
+// Middle of the Linked List
+// func MiddleNodePrint(head *linkedlists.ListNode) {}
+
+// func middleNode(head *linkedlists.ListNode) *linkedlists.ListNode {
+//     // Bad
+// 	return head
+// }
