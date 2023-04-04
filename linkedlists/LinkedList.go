@@ -16,7 +16,7 @@ func (this *LinkedList) Get(index int) int {
 	if this.Size == 0 {
 		return -1
 	}
-	var cur ListNode = *this.Head
+	cur := *this.Head
 	for i := 0; i < this.Size; i++ {
 		if i == index {
 			return cur.Val
@@ -27,8 +27,9 @@ func (this *LinkedList) Get(index int) int {
 }
 
 func (this *LinkedList) AddAtHead(val int) {
-	var n = new(ListNode)
-	n.Val = val
+	n := &ListNode{
+		Val: val,
+	}
 	if this.Head != nil {
 		n.Next = this.Head
 		this.Head.Prev = n
@@ -41,8 +42,9 @@ func (this *LinkedList) AddAtHead(val int) {
 }
 
 func (this *LinkedList) AddAtTail(val int) {
-	var n = new(ListNode)
-	n.Val = val
+	n := &ListNode{
+		Val: val,
+	}
 	if this.Tail != nil {
 		n.Prev = this.Tail
 		this.Tail.Next = n
@@ -54,27 +56,30 @@ func (this *LinkedList) AddAtTail(val int) {
 	this.Size++
 }
 
-func (this *LinkedList) AddAtIndex(index int, val int) {
+func (this *LinkedList) AddAtIndex(index, val int) {
 	if index == 0 {
 		this.AddAtHead(val)
-	} else if index == this.Size-1 {
+	} else if index == this.Size {
 		this.AddAtTail(val)
-	} else if index < this.Size-1 {
-		var n = new(ListNode)
-		n.Val = val
-		var prev = *this.Head
-		var cur ListNode = *this.Head
-		i := 0
-		for i < index {
-			if prev != cur {
-				prev = cur
-			}
-			cur = *cur.Next
+	} else if index < this.Size {
+		n := &ListNode{
+			Val: val,
 		}
-		n.Prev = &prev
-		n.Next = &cur
-		prev.Next = n
-		cur.Prev = n
+		cur := this.Head
+		prev := cur
+		i := 0
+		for cur != nil {
+			if i == index {
+				n.Prev = prev
+				prev.Next = n
+				n.Next = cur
+				cur.Prev = n
+				break
+			}
+			i++
+			prev = cur
+			cur = cur.Next
+		}
 		this.Size++
 	}
 }
@@ -83,23 +88,27 @@ func (this *LinkedList) DeleteAtIndex(index int) {
 	if index == 0 {
 		this.Head = this.Head.Next
 		this.Head.Prev = nil
-	} else if index == this.Size-1 {
+	} else if index == this.Size {
 		this.Tail = this.Tail.Prev
 		this.Tail.Next = nil
-	} else if index < this.Size-1 {
-		var prev = *this.Head
-		var cur = *this.Head
+	} else if index < this.Size {
+		cur := this.Head
+		prev := cur
 		i := 0
-		for i < index {
-			if prev != cur {
-				prev = cur
+		for cur != nil {
+			if i == index {
+				prev.Next = cur.Next
+				if cur.Next != nil {
+					cur.Next.Prev = prev
+				}
+				break
 			}
-			cur = *cur.Next
+			prev = cur
+			cur = cur.Next
+			i++
 		}
-		prev.Next = &cur
-		cur.Prev = &prev
 	}
-	if index <= this.Size-1 {
+	if index <= this.Size {
 		this.Size--
 	}
 }
@@ -107,19 +116,18 @@ func (this *LinkedList) DeleteAtIndex(index int) {
 func (this *LinkedList) PrintLL() string {
 	result := "(head) -> "
 	if this.Size == 0 {
-		result += "none"
+		result += "none -> "
 	} else {
 		// Need to fix this section, returns an error for some reason
 		i := 0
-		var cur ListNode = *this.Head
-		for cur != *this.Tail.Next && i < this.Size {
+		cur := this.Head
+		for cur != this.Tail.Next && i < this.Size {
 			result += fmt.Sprintf("%d", cur.Val)
-			if i < this.Size-1 {
-				result += " -> "
-			}
-			cur = *cur.Next
+			result += " -> "
+			cur = cur.Next
 			i++
 		}
 	}
+	result += "(tail)"
 	return result
 }

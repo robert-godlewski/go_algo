@@ -107,4 +107,13 @@ func main() {
 	testLL.AddAtTail(3)
 	testLLStr = testLL.PrintLL()
 	fmt.Printf("%v\n", testLLStr)
+	testLL.AddAtIndex(1, 2)
+	testLLStr = testLL.PrintLL()
+	fmt.Printf("%v\n", testLLStr)
+	indNum := 1
+	var testInx = testLL.Get(indNum)
+	fmt.Printf("Index %v = %v\n", indNum, testInx)
+	testLL.DeleteAtIndex(indNum)
+	testLLStr = testLL.PrintLL()
+	fmt.Printf("%v\n", testLLStr)
 }
