@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"go_algo/challenges"
 	"go_algo/linkedlists"
+	"go_algo/queuesstacks"
 )
 
 // Use to make a thickLine in the terminal to split up the main categories
@@ -116,4 +117,18 @@ func main() {
 	testLL.DeleteAtIndex(indNum)
 	testLLStr = testLL.PrintLL()
 	fmt.Printf("%v\n", testLLStr)
+
+	// Testing out Queue class
+	var testQ = new(queuesstacks.LinkedQueue)
+	fmt.Println("Empty linked queue:")
+	var testQStr = testQ.PrintQueue()
+	fmt.Printf("%v\n", testQStr)
+	fmt.Println("Queue list add in operations:")
+	testQ.Push(1)
+	testQStr = testQ.PrintQueue()
+	fmt.Printf("%v\n", testQStr)
+	// This is producing a bug in the LinkedList class
+	testQ.Pop()
+	testQStr = testQ.PrintQueue()
+	fmt.Printf("%v\n", testQStr)
 }
