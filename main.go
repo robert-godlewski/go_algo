@@ -85,6 +85,11 @@ func main() {
 	challenges.NumberOfStepsPrint(14)
 	challenges.NumberOfStepsPrint(8)
 	challenges.NumberOfStepsPrint(123)
+	thinLine()
+
+	thickLine()
+	fmt.Println("Testing out class features")
+	thickLine()
 
 	// Testing out ListNode class
 	// var n1 = new(linkedlists.ListNode)
@@ -117,6 +122,7 @@ func main() {
 	testLL.DeleteAtIndex(indNum)
 	testLLStr = testLL.PrintLL()
 	fmt.Printf("%v\n", testLLStr)
+	thinLine()
 
 	// Testing out Queue class
 	var testQ = new(queuesstacks.LinkedQueue)
@@ -127,8 +133,32 @@ func main() {
 	testQ.Push(1)
 	testQStr = testQ.PrintQueue()
 	fmt.Printf("%v\n", testQStr)
-	// This is producing a bug in the LinkedList class
-	testQ.Pop()
+	testQ.Push(2)
 	testQStr = testQ.PrintQueue()
 	fmt.Printf("%v\n", testQStr)
+	fmt.Println("Queue list removal operation:")
+	q_val := testQ.Pop()
+	fmt.Printf("Removed %v from the queue\n", q_val)
+	testQStr = testQ.PrintQueue()
+	fmt.Printf("%v\n", testQStr)
+	thinLine()
+
+	// Testing out Stack class
+	var testS = new(queuesstacks.LinkedStack)
+	fmt.Println("Empty linked stack:")
+	var testSstr = testS.PrintStack()
+	fmt.Printf("%v\n", testSstr)
+	fmt.Println("Stack list add in operations:")
+	testS.Push(1)
+	testSstr = testS.PrintStack()
+	fmt.Printf("%v\n", testSstr)
+	testS.Push(2)
+	testSstr = testS.PrintStack()
+	fmt.Printf("%v\n", testSstr)
+	fmt.Println("Stack list removal operation:")
+	s_val := testS.Pop()
+	fmt.Printf("Removed %v from the stack\n", s_val)
+	testSstr = testS.PrintStack()
+	fmt.Printf("%v\n", testSstr)
+	thinLine()
 }

@@ -5,27 +5,27 @@ import (
 	"go_algo/linkedlists"
 )
 
-type LinkedQueue struct {
+type LinkedStack struct {
 	linkedlists.LinkedList
 }
 
-func (this *LinkedQueue) Push(val int) {
-	// Puropse is to add this only at the tail of the queue
+func (this *LinkedStack) Push(val int) {
+	// Purpose is to add this only at the tail/top of the stack
 	this.AddAtTail(val)
 }
 
-func (this *LinkedQueue) Pop() int {
-	val := this.Head.Val
-	this.Head = this.Head.Next
-	if this.Head != nil {
-		this.Head.Prev = nil
+func (this *LinkedStack) Pop() int {
+	val := this.Tail.Val
+	this.Tail = this.Tail.Prev
+	if this.Tail != nil {
+		this.Tail.Next = nil
 	}
 	this.Size--
 	return val
 }
 
-func (this *LinkedQueue) PrintQueue() string {
-	result := "(front) -> "
+func (this *LinkedStack) PrintStack() string {
+	result := "(bottom) -> "
 	if this.Size == 0 {
 		result += "none -> "
 	} else {
@@ -38,6 +38,6 @@ func (this *LinkedQueue) PrintQueue() string {
 			i++
 		}
 	}
-	result += "(back)"
+	result += "(top)"
 	return result
 }
