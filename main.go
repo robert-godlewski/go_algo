@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"go_algo/binarytrees"
 	"go_algo/challenges"
 	"go_algo/linkedlists"
 	"go_algo/queuesstacks"
@@ -19,17 +20,7 @@ func thinLine() {
 }
 
 // Testing out Challenge Problems
-
 func main() {
-	// Testing out the input
-	// var name string
-	// var numTemp int
-	// fmt.Println("Enter your name:")
-	// fmt.Scan(&name)
-	// fmt.Println("Enter in a number")
-	// fmt.Scan(&numTemp)
-	// fmt.Printf("Hello %v, you chose %v\n", name, numTemp)
-
 	// Testing out the Challenge problems
 	thickLine()
 	fmt.Println("Challenge Problems")
@@ -161,4 +152,13 @@ func main() {
 	testSstr = testS.PrintStack()
 	fmt.Printf("%v\n", testSstr)
 	thinLine()
+
+	// Testing out Binary Tree Package
+	testBT := new(binarytrees.BinaryTree)
+	testBT.Push(20)
+	testBT.Push(10)
+	testBT.Push(30)
+	fmt.Printf("New binary tree node with value of %v\n", testBT.Root.Val)
+	fmt.Printf("Binary Tree left node = %v\n", testBT.Root.Left.Val)
+	fmt.Printf("Binary Tree right node = %v\n", testBT.Root.Right.Val)
 }
