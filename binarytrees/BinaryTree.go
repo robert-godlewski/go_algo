@@ -1,9 +1,9 @@
 package binarytrees
 
-//import "fmt"
+import "fmt"
 
 type BinaryTree struct {
-	Root *BinaryTreeNode
+	Root *TreeNode
 	Size int
 }
 
@@ -13,9 +13,46 @@ func Constructor() BinaryTree {
 
 func (this *BinaryTree) Push(value int) {
 	if this.Root == nil {
-		this.Root = &BinaryTreeNode{Val: value, Left: nil, Right: nil}
+		this.Root = &TreeNode{Val: value, Left: nil, Right: nil}
 	} else {
-		this.Root.Push(value)
+		this.Root.push(value)
 	}
 	this.Size++
 }
+
+func (this *BinaryTree) BST(value int) bool {
+	result := false
+	if this.Root != nil {
+		cur := this.Root
+		for cur != nil && result == false {
+			fmt.Printf("cur.Val = %v\n", cur.Val)
+			if cur.Val > value {
+				cur = cur.Left
+			} else if cur.Val < value {
+				cur = cur.Right
+			} else {
+				// cur.Val == value
+				result = true
+			}
+		}
+	}
+	return result
+}
+
+// func (this *BinaryTree) PreorderTraversal() []int {
+// 	var arr = make([]int, this.Size)
+// 	//
+// 	return arr
+// }
+
+// func (this *BinaryTree) InorderTraversal() []int {
+// 	var arr = make([]int, this.Size)
+// 	//
+// 	return arr
+// }
+
+// func (this *BinaryTree) PostorderTraversal() []int {
+// 	var arr = make([]int, this.Size)
+// 	//
+// 	return arr
+// }

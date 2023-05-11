@@ -161,4 +161,8 @@ func main() {
 	fmt.Printf("New binary tree node with value of %v\n", testBT.Root.Val)
 	fmt.Printf("Binary Tree left node = %v\n", testBT.Root.Left.Val)
 	fmt.Printf("Binary Tree right node = %v\n", testBT.Root.Right.Val)
+	testBST1 := testBT.BST(5)
+	fmt.Printf("Able to find 5? %v\n", testBST1)
+	testBST2 := testBT.BST(10)
+	fmt.Printf("Able to find 10? %v\n", testBST2)
 }
