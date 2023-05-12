@@ -3,107 +3,102 @@ package challenges
 
 import (
 	"fmt"
-	//"go_algo/LinkedLists"
+	"go_algo/linkedlists"
 )
 
 // Running sum of a 1d Array
-func RunningSumPrint(nums [5]int) {
+func RunningSumTests() {
+	fmt.Println("Checking the Running Sum of 1d Arrays")
+	numSum := [5]int{1, 2, 3, 4}
+	runningSumPrint(numSum)
+	numSum[1] = 1
+	numSum[2] = 1
+	numSum[3] = 1
+	numSum[4] = 1
+	runningSumPrint(numSum)
+	numSum[0] = 3
+	numSum[1] = 1
+	numSum[2] = 2
+	numSum[3] = 10
+	numSum[4] = 1
+	runningSumPrint(numSum)
+}
+
+func runningSumPrint(nums [5]int) {
 	fmt.Printf("Initial values are %v\n", nums)
 	sumList := runningSum(nums)
 	fmt.Printf("The running sum is %v\n", sumList)
 }
 
-// Actually runs the code
-// Solved in 5 min
-// O(n) time solution
-// O(1) space solution
-func runningSum(nums [5]int) [5]int {
-	for i := 1; i < len(nums); i++ {
-		nums[i] += nums[i-1]
+// Richest Customer Wealth
+func MaxWealthTests() {
+	fmt.Println("Finding the Maximum Wealth")
+	accounts1 := [3][3]int{
+		{1, 2, 3},
+		{3, 2, 1},
 	}
-	return nums
+	maxWealthPrint(accounts1)
+	accounts2 := [3][3]int{
+		{1, 5},
+		{7, 3},
+		{3, 5},
+	}
+	maxWealthPrint(accounts2)
+	accounts3 := [3][3]int{
+		{2, 8, 7},
+		{7, 1, 3},
+		{1, 9, 5},
+	}
+	maxWealthPrint(accounts3)
 }
 
-// Richest Customer Wealth
-func MaxWealthPrint(accounts [3][3]int) {
+func maxWealthPrint(accounts [3][3]int) {
 	fmt.Printf("Account values = %v\n", accounts)
 	maxClient := maximumWealth(accounts)
 	fmt.Printf("The richest client has %v\n", maxClient)
 }
 
-// Solved in 10 min
-// O(n**2) time solution
-// O(1) space solution
-func maximumWealth(accounts [3][3]int) int {
-	m := len(accounts)
-	n := len(accounts[0])
-	maxSum := 0
-	for i := 0; i < m; i++ {
-		subTotal := 0
-		for j := 0; j < n; j++ {
-			subTotal += accounts[i][j]
-		}
-		if subTotal > maxSum {
-			maxSum = subTotal
-		}
-	}
-	return maxSum
+// Fizz Buzz
+func FizzBuzzTests() {
+	fmt.Println("Fizz Buzz")
+	fizzBuzzPrint(3)
+	fizzBuzzPrint(5)
+	fizzBuzzPrint(15)
 }
 
-// Fizz Buzz
-func FizzBuzzPrint(n int) {
+func fizzBuzzPrint(n int) {
 	fmt.Printf("Fizz Buzz print for length of %v\n", n)
 	result := fizzBuzz(n)
 	fmt.Printf("Result = %v\n", result)
 }
 
-// Solved in 5 min
-// O(n) time solution
-// O(1) space solution
-func fizzBuzz(n int) []string {
-	var result []string
-	for i := 1; i <= n; i++ {
-		val := ""
-		if i%3 == 0 {
-			val += "Fizz"
-		}
-		if i%5 == 0 {
-			val += "Buzz"
-		}
-		if val == "" {
-			val = fmt.Sprintf("%d", i)
-		}
-		result = append(result, val)
-	}
-	return result
+// Number of steps to reduce a number to 0
+func NumberOfStepsTests() {
+	fmt.Println("Number of Steps")
+	numberOfStepsPrint(14)
+	numberOfStepsPrint(8)
+	numberOfStepsPrint(123)
 }
 
-// Number of steps to reduce a number to 0
-func NumberOfStepsPrint(num int) {
+func numberOfStepsPrint(num int) {
 	result := numberOfSteps(num)
 	fmt.Printf("The number of steps to take %v to 0 = %v.\n", num, result)
 }
 
-// Solved in 5 min
-// O(n) time solution
-// O(1) space solution
-func numberOfSteps(num int) int {
-	steps := 0
-	for num > 0 {
-		if num%2 == 0 {
-			num /= 2
-		} else {
-			num -= 1
-		}
-		steps++
-	}
-	return steps
+// Middle of the Linked List
+func MiddleNodeTests() {
+	sllt := new(linkedlists.LinkedList)
+	sllt.AddAtHead(1)
+	sllt.AddAtTail(2)
+	sllt.AddAtTail(3)
+	sllt.AddAtTail(4)
+	sllt.AddAtTail(5)
+	middleNodePrint(sllt.Head)
+	sllt.AddAtTail(6)
+	middleNodePrint(sllt.Head)
 }
 
-// Middle of the Linked List
-// func MiddleNodePrint(head *linkedlists.ListNode) {}
-
-// func middleNode(head *linkedlists.ListNode) *linkedlists.ListNode {
-//     // Bad
-// 	return head
-// }
+func middleNodePrint(head *linkedlists.ListNode) {
+	result := middleNode(head)
+	fmt.Printf("The head of the result = (%v)\n", result.Val)
+}

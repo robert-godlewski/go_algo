@@ -118,7 +118,6 @@ func (this *LinkedList) PrintLL() string {
 	if this.Size == 0 {
 		result += "none -> "
 	} else {
-		// Need to fix this section, returns an error for some reason
 		i := 0
 		cur := this.Head
 		for cur != this.Tail.Next && i < this.Size {

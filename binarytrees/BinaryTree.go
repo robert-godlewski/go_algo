@@ -38,21 +38,3 @@ func (this *BinaryTree) BST(value int) bool {
 	}
 	return result
 }
-
-// func (this *BinaryTree) PreorderTraversal() []int {
-// 	var arr = make([]int, this.Size)
-// 	//
-// 	return arr
-// }
-
-// func (this *BinaryTree) InorderTraversal() []int {
-// 	var arr = make([]int, this.Size)
-// 	//
-// 	return arr
-// }
-
-// func (this *BinaryTree) PostorderTraversal() []int {
-// 	var arr = make([]int, this.Size)
-// 	//
-// 	return arr
-// }
