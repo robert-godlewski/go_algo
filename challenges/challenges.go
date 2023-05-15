@@ -102,3 +102,15 @@ func middleNodePrint(head *linkedlists.ListNode) {
 	result := middleNode(head)
 	fmt.Printf("The head of the result = (%v)\n", result.Val)
 }
+
+// Ransom Note
+func CanConstructTests() {
+	canConstructPrint("a", "b")
+	canConstructPrint("aa", "ab")
+	canConstructPrint("aa", "aab")
+}
+
+func canConstructPrint(ransomNote string, magazine string) {
+	result := canConstruct(ransomNote, magazine)
+	fmt.Printf("Can we use '%v' with '%v'? %v\n", ransomNote, magazine, result)
+}

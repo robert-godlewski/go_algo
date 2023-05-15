@@ -45,6 +45,10 @@ func main() {
 	challenges.MiddleNodeTests()
 	thinLine()
 
+	// Testing Ransom Note
+	challenges.CanConstructTests()
+	thinLine()
+
 	thickLine()
 	fmt.Println("Testing out class features")
 	thickLine()

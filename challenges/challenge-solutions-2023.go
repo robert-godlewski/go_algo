@@ -96,3 +96,25 @@ func middleNode(head *linkedlists.ListNode) *linkedlists.ListNode {
 	}
 	return result
 }
+
+// Ransom Note
+// Solved in over 1 hr - need to work on this
+// Time = O(n)
+// Space = O(n)
+func canConstruct(ransomNote string, magazine string) bool {
+	// There are 26 letters in the alphabet
+	mag_arr := make([]int, 26)
+	// add to the hashmap
+	for _, val := range magazine {
+		//fmt.Printf("i = %v\nval = %v\nval-'a' = %v\n", i, val, val-'a')
+		mag_arr[val-'a']++
+	}
+	//fmt.Printf("mag_arr = %v\n", mag_arr)
+	for _, val := range ransomNote {
+		mag_arr[val-'a']--
+		if mag_arr[val-'a'] < 0 {
+			return false
+		}
+	}
+	return true
+}
