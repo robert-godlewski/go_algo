@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"go_algo/binarytrees"
 	"go_algo/challenges"
+	"go_algo/llproblems"
 	"go_algo/queuesstacks"
 )
 
@@ -47,7 +48,14 @@ func main() {
 
 	// Testing Ransom Note
 	challenges.CanConstructTests()
-	thinLine()
+
+	// Testing Linked Lists
+	thickLine()
+	fmt.Println("Running Linked List Tests")
+	thickLine()
+
+	// Testing reverseList
+	llproblems.ReverseLLTests()
 
 	thickLine()
 	fmt.Println("Testing out class features")
