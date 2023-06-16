@@ -56,6 +56,8 @@ func main() {
 
 	// Testing reverseList
 	llproblems.ReverseLLTests()
+	thinLine()
+	llproblems.RemoveListNodeTests()
 
 	thickLine()
 	fmt.Println("Testing out class features")
