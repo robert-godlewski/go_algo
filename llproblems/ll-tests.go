@@ -62,3 +62,24 @@ func removeLNPrint(list *linkedlists.LinkedList, val int) {
 	fmt.Printf("%v\n", resultStr)
 	//fmt.Printf("The head of the result = (%v)\n", result.Val)
 }
+
+// Palindrome Linked List
+func PalindromeLLTests() {
+	sll1 := new(linkedlists.LinkedList)
+	sll1.AddAtTail(1)
+	sll1.AddAtTail(2)
+	sll1.AddAtTail(2)
+	sll1.AddAtTail(1)
+	palindromeLLPrint(sll1)
+	sll2 := new(linkedlists.LinkedList)
+	sll2.AddAtTail(1)
+	sll2.AddAtTail(2)
+	palindromeLLPrint(sll2)
+}
+
+func palindromeLLPrint(list *linkedlists.LinkedList) {
+	fmt.Println("Is this list a Palindrome?")
+	fmt.Printf("%v\n", list.PrintLL())
+	is_palindrome := isPalindrome(list.Head)
+	fmt.Printf("%v\n", is_palindrome)
+}

@@ -1,7 +1,9 @@
 // Solutions to linked list problems in June 2023
 package llproblems
 
-import "go_algo/linkedlists"
+import (
+	"go_algo/linkedlists"
+)
 
 // Reverse Linked List Solution
 // Time Complexity = O(1)
@@ -53,4 +55,29 @@ func removeElements(head *linkedlists.ListNode, val int) *linkedlists.ListNode {
 		}
 	}
 	return head
+}
+
+// Palindrome Linked List
+func isPalindrome(head *linkedlists.ListNode) bool {
+	if head != nil {
+		var nodeList [100000]int
+		cur := head
+		i := 0
+		for cur != nil && i < len(nodeList) {
+			nodeList[i] = cur.Val
+			cur = cur.Next
+			i++
+		}
+		i--
+		j := 0
+		for j < i {
+			if nodeList[i] != nodeList[j] {
+				return false
+			}
+			j++
+			i--
+		}
+		return true
+	}
+	return false
 }

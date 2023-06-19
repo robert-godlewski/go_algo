@@ -57,7 +57,13 @@ func main() {
 	// Testing reverseList
 	llproblems.ReverseLLTests()
 	thinLine()
+
+	// Testing removeElements
 	llproblems.RemoveListNodeTests()
+	thinLine()
+
+	// Testing Palindronme Linked Lists
+	llproblems.PalindromeLLTests()
 
 	thickLine()
 	fmt.Println("Testing out class features")
