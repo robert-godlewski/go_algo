@@ -2,6 +2,7 @@
 package llproblems
 
 import (
+	"fmt"
 	"go_algo/linkedlists"
 )
 
@@ -80,4 +81,35 @@ func isPalindrome(head *linkedlists.ListNode) bool {
 		return true
 	}
 	return false
+}
+
+// Merge Two Sorted Lists
+// Bad solution according to leetcode
+func mergeTwoLists(list1 *linkedlists.ListNode, list2 *linkedlists.ListNode) *linkedlists.ListNode {
+	if list2 != nil && list1 == nil {
+		return list2
+	} else {
+		var prev *linkedlists.ListNode = nil
+		cur1 := list1
+		cur2 := list2
+		for cur1 != nil && cur2 != nil {
+			fmt.Printf("cur1 = %v\n", cur1.Val)
+			fmt.Printf("cur2 = %v\n", cur2.Val)
+			if cur1.Val > cur2.Val {
+				fmt.Printf("%v > %v\n", cur1.Val, cur2.Val)
+				prev.Next = cur2
+				temp := cur2.Next
+				cur2.Next = cur1
+				cur2 = temp
+			} else {
+				fmt.Printf("%v <= %v\n", cur1.Val, cur2.Val)
+				temp := cur1.Next
+				cur1.Next = cur2
+				prev = cur1
+				cur1 = cur1.Next
+				cur2 = temp
+			}
+		}
+		return list1
+	}
 }

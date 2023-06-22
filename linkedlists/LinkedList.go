@@ -1,7 +1,5 @@
 package linkedlists
 
-import "fmt"
-
 type LinkedList struct {
 	Head *ListNode
 	Tail *ListNode
@@ -111,22 +109,4 @@ func (this *LinkedList) DeleteAtIndex(index int) {
 	if index <= this.Size {
 		this.Size--
 	}
-}
-
-func (this *LinkedList) PrintLL() string {
-	result := "(head) -> "
-	if this.Size == 0 {
-		result += "none -> "
-	} else {
-		i := 0
-		cur := this.Head
-		for cur != this.Tail.Next && i < this.Size {
-			result += fmt.Sprintf("%d", cur.Val)
-			result += " -> "
-			cur = cur.Next
-			i++
-		}
-	}
-	result += "(tail)"
-	return result
 }
