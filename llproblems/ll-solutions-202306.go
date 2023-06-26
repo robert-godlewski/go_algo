@@ -2,7 +2,6 @@
 package llproblems
 
 import (
-	"fmt"
 	"go_algo/linkedlists"
 )
 
@@ -83,33 +82,84 @@ func isPalindrome(head *linkedlists.ListNode) bool {
 	return false
 }
 
-// Merge Two Sorted Lists
-// Bad solution according to leetcode
+// Merge Two Sorted Lists - Need to study this
 func mergeTwoLists(list1 *linkedlists.ListNode, list2 *linkedlists.ListNode) *linkedlists.ListNode {
-	if list2 != nil && list1 == nil {
+	if list1 == nil && list2 == nil {
+		return nil
+	} else if list1 == nil && list2 != nil {
 		return list2
-	} else {
-		var prev *linkedlists.ListNode = nil
-		cur1 := list1
-		cur2 := list2
-		for cur1 != nil && cur2 != nil {
-			fmt.Printf("cur1 = %v\n", cur1.Val)
-			fmt.Printf("cur2 = %v\n", cur2.Val)
-			if cur1.Val > cur2.Val {
-				fmt.Printf("%v > %v\n", cur1.Val, cur2.Val)
-				prev.Next = cur2
-				temp := cur2.Next
-				cur2.Next = cur1
-				cur2 = temp
-			} else {
-				fmt.Printf("%v <= %v\n", cur1.Val, cur2.Val)
-				temp := cur1.Next
-				cur1.Next = cur2
-				prev = cur1
-				cur1 = cur1.Next
-				cur2 = temp
-			}
-		}
+	} else if list1 != nil && list2 == nil {
 		return list1
+	} else {
+		var temp *linkedlists.ListNode = nil
+		if list1.Val <= list2.Val {
+			temp = list1.Next
+			list2 = mergeTwoLists(temp, list2)
+			list1.Next = list2
+			return list1
+		} else {
+			temp = list2.Next
+			list1 = mergeTwoLists(list1, temp)
+			list2.Next = list1
+			return list2
+		}
 	}
+}
+
+// Add Two Numbers
+func addTwoNumbers(l1 *linkedlists.ListNode, l2 *linkedlists.ListNode) *linkedlists.ListNode {
+	resultList := new(linkedlists.LinkedList)
+	cur1 := l1
+	cur2 := l2
+	addRemainder := false
+	for cur1 != nil && cur2 != nil {
+		sum := 0
+		sum += cur1.Val
+		sum += cur2.Val
+		if addRemainder == true {
+			sum += 1
+			addRemainder = false
+		}
+		if sum >= 10 {
+			sum -= 10
+			addRemainder = true
+		}
+		resultList.AddAtTail(sum)
+		cur1 = cur1.Next
+		cur2 = cur2.Next
+	}
+	// if cur1 != nil but cur2 == nil
+	for cur1 != nil {
+		sum := 0
+		sum += cur1.Val
+		if addRemainder == true {
+			sum += 1
+			addRemainder = false
+		}
+		if sum >= 10 {
+			sum -= 10
+			addRemainder = true
+		}
+		resultList.AddAtTail(sum)
+		cur1 = cur1.Next
+	}
+	// if cur2 != nil but cur1 == nil
+	for cur2 != nil {
+		sum := 0
+		sum += cur2.Val
+		if addRemainder == true {
+			sum += 1
+			addRemainder = false
+		}
+		if sum >= 10 {
+			sum -= 10
+			addRemainder = true
+		}
+		resultList.AddAtTail(sum)
+		cur2 = cur2.Next
+	}
+	if addRemainder == true {
+		resultList.AddAtTail(1)
+	}
+	return resultList.Head
 }

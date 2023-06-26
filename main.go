@@ -68,6 +68,10 @@ func main() {
 
 	// Testing Merge Two Sorted Lists
 	llproblems.MergeLLTests()
+	thinLine()
+
+	// Testing Two Numbers Linked Lists
+	llproblems.AddingLLTests()
 
 	thickLine()
 	fmt.Println("Testing out class features")

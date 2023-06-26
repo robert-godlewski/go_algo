@@ -115,3 +115,36 @@ func mergeLLPrint(list1 *linkedlists.LinkedList, list2 *linkedlists.LinkedList) 
 	fmt.Println("Result:")
 	fmt.Printf("%v\n", PrintLL(merged))
 }
+
+// addTwoNumbers
+func AddingLLTests() {
+	sll1a := new(linkedlists.LinkedList)
+	sll1a.AddAtTail(2)
+	sll1a.AddAtTail(4)
+	sll1a.AddAtTail(3)
+	sll1b := new(linkedlists.LinkedList)
+	sll1b.AddAtTail(5)
+	sll1b.AddAtTail(6)
+	sll1b.AddAtTail(4)
+	addingLLsPrint(sll1a, sll1b)
+	sll2a := new(linkedlists.LinkedList)
+	sll2a.AddAtTail(9)
+	sll2a.AddAtTail(9)
+	sll2a.AddAtTail(9)
+	sll2a.AddAtTail(9)
+	sll2a.AddAtTail(9)
+	sll2a.AddAtTail(9)
+	sll2a.AddAtTail(9)
+	sll2b := new(linkedlists.LinkedList)
+	sll2b.AddAtTail(9)
+	sll2b.AddAtTail(9)
+	sll2b.AddAtTail(9)
+	sll2b.AddAtTail(9)
+	addingLLsPrint(sll2a, sll2b)
+}
+
+func addingLLsPrint(l1 *linkedlists.LinkedList, l2 *linkedlists.LinkedList) {
+	fmt.Printf("%v + %v\n", PrintLL(l1.Head), PrintLL(l2.Head))
+	lsumHead := addTwoNumbers(l1.Head, l2.Head)
+	fmt.Printf("Result: %v\n", PrintLL(lsumHead))
+}
